@@ -7,7 +7,7 @@
 	<li><a href="#">Trueskill</a></li>
 	<li><a href="#">Recent News</a></li>
 	<li><a href="#">FAQ</a></li>
-	<?php if ($this->ion_auth->logged_in()) {echo '<li><a href="'; echo site_url('user_session/register'); echo '">Edit Profile</a></li>';}?>
+	<?php if ($this->ion_auth->logged_in()) {echo '<li><a href="'; echo site_url('user_session/modify'); echo '">Edit Profile</a></li>';}?>
 	</ul>
 	</div>
 		</td></tr><tr><td>

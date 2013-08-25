@@ -97,14 +97,14 @@ $(function () {
 <div id="pro_top">
 <table>
 <tr>
-<td class="pro_head" style="text-align:left;"><?php echo getColoredHandle($profile->handle, $profile->rating); ?>(<img src="<?php echo $profile->country;?>" width="48"/>)</td>
+<td class="pro_head" style="text-align:left;"><?php echo getColoredHandle($profile->handle, $profile->rating); ?>(<img src="<?php echo base_url() . $profile->country;?>" width="48"/>)</td>
 <td class="pro_head" style="text-align:right;">Rating <?php echo round(100*$profile->rating, 0); ?></td>
 </tr>
 </table>
 <hr>
 <table>
 <tr>
-<td class="pro_head" style="text-align:left;"><img class="avatar" src="<?php echo $profile->avatar;?>"/></td>
+<td class="pro_head" style="text-align:left;"><img class="avatar" src="<?php echo base_url() . $profile->avatar;?>"/></td>
 <?php if($profile->quote != "") echo "<td class=\"pro_quote\">\"" . $profile->quote . "\"</td>"; ?>
 <td class="pro_head" style="text-align:right;font-size:210px;"><?php echo $rank ?></td>
 </tr>
