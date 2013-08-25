@@ -48,6 +48,11 @@
 $active_group = 'default';
 $active_record = TRUE;
 
+
+//$db['default']['hostname'] = "mysql8.000webhost.com";
+//$db['default']['username'] = 'a1744627_admin';
+//$db['default']['password'] = 'Asdf!234';
+//$db['default']['database'] = 'a1744627_ladder';
 $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
 $db['default']['password'] = '';

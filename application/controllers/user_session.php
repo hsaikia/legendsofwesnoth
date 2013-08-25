@@ -34,6 +34,26 @@ class User_session extends CI_Controller {
 		$this->profile->add_profile();
 		$this->load->view('registration_success');
 	}
+	
+	public function modify_user(){
+		$username = $this->ion_auth->user()->row()->username;
+		$data['avatar'] = "/assets/images/avatars/" . $_POST['avatar'] . ".png";
+		$data['gender'] = $_POST['gender'];
+		$data['country'] = "/assets/images/flags/" . $_POST['country'] . ".png";
+		$data['quote'] = $_POST['quote'];
+		$this->load->model('profile');
+		$this->profile->modify_profile($username, $data);
+		$this->load->view('modify_success');
+	}
+	
+	public function modify(){
+		$username = $this->ion_auth->user()->row()->username;
+		$this->load->model('profile');
+		$profile = $this->profile->get_profile($username);
+		$data['profile'] = reset($profile);
+		$this->load->view('forms/modify_profile', $data);
+	}
+	
 	public function view_profile($username){
 		$this->load->model('profile');
 		$profile = $this->profile->get_profile($username);
@@ -45,6 +65,19 @@ class User_session extends CI_Controller {
 		$data['rank'] = $this->profile->get_rank($data['profile']->rating);
 		$this->load->view('profile_view', $data);
 	}
+	
+	public function view_profile_2v2($username){
+		$this->load->model('profile');
+		$profile = $this->profile->get_profile($username);
+		//$data = reset($profile); // $profile is an array, reset() returns the first element, in this case the first row (there should be only one :D)
+		$this->load->model('games2v2');
+		$games = $this->games2v2->get_games_of($username);
+		$data['profile'] = reset($profile);
+		$data['games'] = $games;
+		$data['rank'] = $this->profile->get_rank_2v2($data['profile']->rating2v2);
+		$this->load->view('profile_view2v2', $data);
+	}
+	
 	public function view_players(){
 		$this->load->model('profile');
 		$profiles = $this->profile->get_profiles();

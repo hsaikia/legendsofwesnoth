@@ -17,6 +17,9 @@ CREATE TABLE `profiles` (
  `rating` double NOT NULL,
  `mean` double NOT NULL,
  `volatility` double NOT NULL,
+ `rating2v2` double NOT NULL,
+ `mean2v2` double NOT NULL,
+ `volatility2v2` double NOT NULL,
  `join_date` date NOT NULL,
  `email` varchar(255) NOT NULL,
  `avatar` varchar(255) NOT NULL,
@@ -24,7 +27,7 @@ CREATE TABLE `profiles` (
  `country` varchar(255) NOT NULL,
  `quote` varchar(1024) DEFAULT NULL,
  UNIQUE KEY `handle` (`handle`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS `games`;
 
@@ -47,9 +50,48 @@ CREATE TABLE `games` (
  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+DROP TABLE IF EXISTS `games2v2`;
+
+CREATE TABLE `games2v2` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `map` varchar(255) NOT NULL,
+ `handle_w1` varchar(255) NOT NULL,
+ `rating_w1` double NOT NULL,
+ `handle_w2` varchar(255) NOT NULL,
+ `rating_w2` double NOT NULL,
+ `handle_l1` varchar(255) NOT NULL,
+ `rating_l1` double NOT NULL,
+ `handle_l2` varchar(255) NOT NULL,
+ `rating_l2` double NOT NULL,
+ `faction_w1` varchar(255) NOT NULL,
+ `faction_w2` varchar(255) NOT NULL,
+ `faction_l1` varchar(255) NOT NULL,
+ `faction_l2` varchar(255) NOT NULL,
+ `leader_w1` varchar(255) NOT NULL,
+ `leader_w2` varchar(255) NOT NULL,
+ `leader_l1` varchar(255) NOT NULL,
+ `leader_l2` varchar(255) NOT NULL,
+ `winner1` varchar(2) NOT NULL,
+ `winner2` varchar(2) NOT NULL,
+ `replay` blob NOT NULL,
+ `date` datetime NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 DROP TABLE IF EXISTS `comments`;
 
 CREATE TABLE `comments` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `game_id` int(11) NOT NULL,
+ `handle` varchar(255) NOT NULL,
+ `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+ `text` text NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DROP TABLE IF EXISTS `comments2v2`;
+
+CREATE TABLE `comments2v2` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `game_id` int(11) NOT NULL,
  `handle` varchar(255) NOT NULL,

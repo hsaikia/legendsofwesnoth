@@ -385,6 +385,11 @@ $maps['HMLT'] = "Hamlets";
 $maps['SLRS'] = "Sulla's Ruins";
 $maps['WLDN'] = "Weldyn Channel";
 
+GLOBAL $maps2v2;
+$maps2v2['ISAR'] = "Isar's Cross";
+$maps2v2['CSTL'] = "Castle Hopping Isle";
+$maps2v2['CLSH'] = "Clash";
+
 GLOBAL $colorscheme;
 //unrated people are white
 $colorscheme['25'] = "#ff1300"; // > 25.00

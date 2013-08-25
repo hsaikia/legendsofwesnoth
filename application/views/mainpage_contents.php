@@ -12,7 +12,11 @@
 	</div>
 		</td></tr><tr><td>
 	<?php if ($this->ion_auth->logged_in()) include "top10.php"; ?>
-		</td></tr></table>
+		</td></tr>
+		<tr><td>
+	<?php if ($this->ion_auth->logged_in()) include "top10_2v2.php"; ?>
+		</td></tr>
+		</table>
 	
 	</td>
 

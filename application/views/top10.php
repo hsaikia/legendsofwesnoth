@@ -1,5 +1,5 @@
 <div>
-<center><b>The Top 10</b>
+<center><b>The Top 10 (1 v 1)</b>
 <hr>
 <?php
 include_once "globals.php";

@@ -5,10 +5,12 @@ class Profile extends CI_Model {
 	var $email = "";
 	var $mean = 25;
 	var $volatility = 8.333333;
+	var $mean2v2 = 25;
+	var $volatility2v2 = 8.333333;
 	var $join_date = "";
-	var $avatar = "burner.png";
-	var $gender = "M";
-	var $country = "WO";
+	var $avatar = "";
+	var $gender = "";
+	var $country = "";
 	var $quote = "";
 	
 	function __construct(){
@@ -18,6 +20,12 @@ class Profile extends CI_Model {
     
     function get_rank($rating){
 		$this->db->where('rating > ', $rating);
+		$this->db->from('profiles');
+		return $this->db->count_all_results() + 1;
+	}
+	
+	function get_rank_2v2($rating){
+		$this->db->where('rating2v2 > ', $rating);
 		$this->db->from('profiles');
 		return $this->db->count_all_results() + 1;
 	}
@@ -40,6 +48,13 @@ class Profile extends CI_Model {
 		return $query->result();
 	}
 	
+	function get_top10_2v2(){
+		$this->db->limit(10);
+		$this->db->order_by("rating2v2", "desc");
+		$query = $this->db->get('profiles');
+		return $query->result();
+	}
+	
 	function get_handles($partial_handle){
 		$this->db->select('handle'); 
         $this->db->from('profiles');
@@ -56,9 +71,9 @@ class Profile extends CI_Model {
 		$this->handle = $_POST['handle'];
 		$this->email = $_POST['email'];
 		$this->join_date = date('Y-m-d H:i:s');
-		$this->avatar = base_url() . "assets/images/avatars/" . $_POST['avatar'] . ".png";
+		$this->avatar = "/assets/images/avatars/" . $_POST['avatar'] . ".png";
 		$this->gender = $_POST['gender'];
-		$this->country = base_url() . "assets/images/flags/" . $_POST['country'] . ".png";
+		$this->country = "/assets/images/flags/" . $_POST['country'] . ".png";
 		$this->quote = $_POST['quote'];
         $this->db->insert('profiles', $this);
 	}
