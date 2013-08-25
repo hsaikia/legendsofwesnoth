@@ -85,12 +85,37 @@ class Report_Game extends CI_Controller {
 	
 	// Trueskill rating change calculator code ends
 	
+	public function is_valid_handle($handle){
+		if($handle == $this->ion_auth->user()->row()->username){
+			$this->form_validation->set_message('is_valid_handle', 'You cannot report against yourself!');
+			return FALSE;
+		}
+		
+		$this->db->where('handle', $handle);
+		$this->db->from('profiles');
+		$count = $this->db->count_all_results();
+		if($count == 0){
+			$this->form_validation->set_message('is_valid_handle', 'The opponent handle does not exist!');
+			return FALSE;
+		} 
+		return TRUE;
+	}
 	
 	public function add_game(){
 		//fix ratings of two players
 		$this->load->model('profile');
 		$Winner = reset($this->profile->get_profile($_POST['winner_handle']));
 		$Loser = reset($this->profile->get_profile($_POST['loser_handle']));
+		$this->load->library('form_validation');
+		$this->form_validation->set_error_delimiters('<div class="error"><b>', '</b></div>');
+		$this->form_validation->set_rules('loser_handle', 'Opponent', 'trim|required|callback_is_valid_handle');
+		
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->load->view('forms/report');
+			return;
+		}
+		
 		
 		$newRatings = $this->CalcTrueskillChanges($Winner->mean, $Winner->volatility, $Loser->mean, $Loser->volatility);
 		$wdata['mean'] = $newRatings['winnerMean'];
@@ -110,6 +135,12 @@ class Report_Game extends CI_Controller {
 		$this->load->view('reporting_success');
 	}
 	
+	public function are_all_unique($a, $b, $c, $d){
+		if($a == $b || $a == $c || $a == $d || $b == $c || $b == $d || $c == $d)
+			return false;
+		return true;
+	}
+	
 	public function add_game_2v2(){
 		$this->load->model('profile');
 		$w1 = reset($this->profile->get_profile($_POST['winner_handle1']));
@@ -117,6 +148,22 @@ class Report_Game extends CI_Controller {
 		$l1 = reset($this->profile->get_profile($_POST['loser_handle1']));
 		$l2 = reset($this->profile->get_profile($_POST['loser_handle2']));
 		
+		$this->load->library('form_validation');
+		$this->form_validation->set_error_delimiters('<div class="error"><b>', '</b></div>');
+		$this->form_validation->set_rules('winner_handle2', 'Partner', 'trim|required|callback_is_valid_handle');
+		$this->form_validation->set_rules('loser_handle1', 'Opponent1', 'trim|required|callback_is_valid_handle');
+		$this->form_validation->set_rules('loser_handle2', 'Opponent2', 'trim|required|callback_is_valid_handle');
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->load->view('forms/report2v2');
+			return;
+		}
+		if($this->are_all_unique($w1, $w2, $l1, $l2) == FALSE) {
+			//TODO : have to display an error message somehow
+			//$this->form_validation->set_message('is_valid_handle', 'You entered one player more than once!');
+			$this->load->view('forms/report2v2');
+			return;
+		}
 		$newRatings = $this->CalcTrueskillChanges2v2($w1->mean, $w1->volatility, $w2->mean, $w2->volatility, $l1->mean, $l1->volatility, $l2->mean, $l2->volatility);
 		$wdata1['mean2v2'] = $newRatings['winnerMean1'];
 		$wdata1['volatility2v2'] = $newRatings['winnerSigma1'];

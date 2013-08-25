@@ -5,23 +5,24 @@
 <div id="header">
 <?php $this->load->view('logo.php'); ?>
 </div>
+<?php echo validation_errors(); ?>
 	<div id="reg_form" class="content">
 		<h2>Register at Legends of Wesnoth!</h2>
 		<div style="font-size:10px">By registering, you will have access to report games, search for past games, downloading replays, analyzing personal stats or stats of other players, tournaments and discussions related to reported games!</div>
 		<hr>
+		
 	<?php echo form_open('user_session/register_user'); ?>
 	<table>
 	<tr>
 	<td class="label"><strong>Handle</strong> (this is the alias which will appear alongside all
-	 your published content throughout the site, a handle may contain uppercase and lowercase 
-	 letters, numbers and underscores)</td>
-	<td class="field"><input type="text" name="handle" value="" size="18"/></td>
+	 your published content throughout the site)</td>
+	<td class="field"><input type="text" name="handle" value="<?php echo set_value('handle'); ?>" size="18"/></td>
 	</tr>
 	<tr><td class="label"><strong>Password</strong></td>
-	<td class="field"><input type="password" name="password" value="" size="18"/></td>
+	<td class="field"><input type="password" name="password" value="<?php echo set_value('password'); ?>" size="18"/></td>
 	</tr>
 	<tr><td class="label"><strong>Retype Password</strong></td>
-	<td class="field"><input type="password" name="repassword" value="" size="18"/></td>
+	<td class="field"><input type="password" name="repassword" value="<?php echo set_value('repassword'); ?>" size="18"/></td>
 	</tr>
 	<tr><td class="label"><strong>Gender</strong></td>
 	<td class="field"><select name="gender">
@@ -29,7 +30,7 @@
 		<option value="F">Female</option>
 	</select></td></tr>
 	<tr><td class="label"><strong>Email address</strong></td>
-	<td class="field"><input type="text" name="email" value="" size="28"/></td>
+	<td class="field"><input type="text" name="email" value="<?php echo set_value('email'); ?>" size="28"/></td>
 	</tr>
 	<tr><td class="label"><strong>Country</strong></td>
 	<td class="field"><select name="country">

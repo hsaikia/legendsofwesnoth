@@ -7,9 +7,13 @@ class User_session extends CI_Controller {
 		$remember = FALSE;
 		if(isset($_POST['remember']) && $_POST['remember'] == 'true')
 			$remember = TRUE;
+		
+		//TODO : Have to send proper error message in case if failed login
+		
 		$success = $this->ion_auth->login($email, $password);
 		$this->load->model('profile');
 		$data['top10_profiles'] = $this->profile->get_top10();
+		$data['top10_profiles_2v2'] = $this->profile->get_top10_2v2();
 		$this->load->view('mainpage', $data);
 	}
 	public function logout(){
@@ -29,10 +33,23 @@ class User_session extends CI_Controller {
 								);
 		$group = array('2'); 
 
-		$this->ion_auth->register($username, $password, $email, $additional_data, $group);
-		$this->load->model('profile');
-		$this->profile->add_profile();
-		$this->load->view('registration_success');
+		$this->form_validation->set_error_delimiters('<div class="error"><b>', '</b></div>');
+		$this->form_validation->set_rules('handle', 'Handle', 'trim|required|alpha_dash|min_length[3]|is_unique[profiles.handle]|xss_clean');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required|matches[repassword]|min_length[6]');
+		$this->form_validation->set_rules('repassword', 'Retype Password', 'trim|required');
+		$this->form_validation->set_rules('email', 'Email address', 'trim|required|valid_email|is_unique[profiles.email]');
+
+		if ($this->form_validation->run() == FALSE)
+		{
+			$this->load->view('forms/register_new');
+		}
+		else
+		{
+			$this->ion_auth->register($username, $password, $email, $additional_data, $group);
+			$this->load->model('profile');
+			$this->profile->add_profile();
+			$this->load->view('registration_success');
+		}
 	}
 	
 	public function modify_user(){
@@ -41,9 +58,16 @@ class User_session extends CI_Controller {
 		$data['gender'] = $_POST['gender'];
 		$data['country'] = "/assets/images/flags/" . $_POST['country'] . ".png";
 		$data['quote'] = $_POST['quote'];
-		$this->load->model('profile');
-		$this->profile->modify_profile($username, $data);
-		$this->load->view('modify_success');
+		$this->form_validation->set_rules('password', 'Password', 'trim|required|matches[repassword]|min_length[6]');
+		$this->form_validation->set_rules('repassword', 'Retype Password', 'trim|required');
+		$this->form_validation->set_error_delimiters('<div class="error"><b>', '</b></div>');
+		if ($this->form_validation->run() == FALSE){
+			$this->modify();
+		} else {	
+			$this->load->model('profile');
+			$this->profile->modify_profile($username, $data);
+			$this->load->view('modify_success');
+		}
 	}
 	
 	public function modify(){

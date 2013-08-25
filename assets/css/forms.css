@@ -16,6 +16,15 @@
 	width: 300px;
 }
 
+.error {
+	width : 600px;
+	display : block;
+	padding: 10px;
+	margin: 5px;
+	font-size:12px;
+	border:solid 2px #ff0000;
+}
+
 /***FIRST STYLE THE BUTTON***/
 input#gobutton{
 cursor:pointer; /*forces the cursor to change to a hand when the button is hovered*/

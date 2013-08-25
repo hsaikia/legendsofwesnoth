@@ -5,9 +5,10 @@
 <div id="header">
 <?php $this->load->view('logo.php'); ?>
 </div>
+<?php echo validation_errors(); ?>
 	<div id="reg_form" class="content">
 		<h2>Edit Profile</h2>
-		<p>You cannot modify your handle and email address!</p>
+		<p>Note : You cannot modify your handle and email address</p>
 		<hr>
 	<?php echo form_open('user_session/modify_user'); ?>
 	<table>
@@ -23,8 +24,8 @@
 	</tr>
 	<tr><td class="label"><strong>Gender</strong></td>
 	<td class="field"><select name="gender">
-		<option value="M" selected>Male</option>
-		<option value="F">Female</option>
+		<option value="M" <?php if($profile->gender == "M") echo "selected"; ?>>Male</option>
+		<option value="F" <?php if($profile->gender == "F") echo "selected"; ?>>Female</option>
 	</select></td></tr>
 	<tr><td class="label"><strong>Country</strong></td>
 	<td class="field"><select name="country">

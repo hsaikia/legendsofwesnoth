@@ -10,7 +10,7 @@ class Profile extends CI_Model {
 	var $join_date = "";
 	var $avatar = "";
 	var $gender = "";
-	var $country = "";
+	var $country = "WO";
 	var $quote = "";
 	
 	function __construct(){

@@ -6,7 +6,7 @@
 <?php $this->load->view('logo.php'); ?>
 <?php $this->load->view('main_menu.php');?>
 </div> <!-- end header -->
-
+<?php echo validation_errors(); ?>
 <div class="content">
 	<h2>Report win</h2>
 	<?php echo form_open('report_game/add_game'); ?>
