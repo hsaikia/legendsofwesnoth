@@ -79,7 +79,7 @@ class Profile extends CI_Model {
 		$this->handle = $_POST['handle'];
 		$this->email = $_POST['email'];
 		$this->join_date = date('Y-m-d H:i:s');
-		$this->avatar = "/assets/images/avatars/" . $_POST['avatar'] . ".png";
+		$this->avatar = "/assets/images/avatars/" . $_POST['avatar'];
 		$this->gender = $_POST['gender'];
 		$this->country = "/assets/images/flags/" . $_POST['country'] . ".png";
 		$this->quote = $_POST['quote'];

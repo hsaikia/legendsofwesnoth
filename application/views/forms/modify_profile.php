@@ -267,7 +267,6 @@
     <option value="WF">Wallis and Futuna Islands</option>
     <option value="EH">Western Sahara</option>
     <option value="YE">Yemen</option>
-    <option value="YU">Yugoslavia</option>
     <option value="ZM">Zambia</option>
     <option value="ZW">Zimbabwe</option>
     <option value="ZZ">Not Listed</option>
@@ -276,9 +275,14 @@
 	
 	<tr><td class="label"><strong>Avatar</strong></td>
 	<td class="field"><select name="avatar">
-		<option value="sylph">Elvish Sylph</option>
-		<option value="burner" selected>Drake Burner</option>
-		<option value="deathblade">Deathblade</option>
+		<?php
+			$this->load->helper('directory');
+			$map = directory_map('./assets/images/avatars/');
+			foreach ($map as $key => $value){
+				$avatars[$value] = ucfirst($value);
+				echo "<option value='". $value . "'>". substr(ucfirst($value), 0, -4) . "</option>";
+			}
+		?>
 	</select></td></tr>
 	
 	<tr><td class="label"><strong>Quote(optional)</strong></td><td class="field"><input type="text" name="quote" value="" size="38"/></td></tr>

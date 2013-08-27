@@ -54,7 +54,7 @@ class User_session extends CI_Controller {
 	
 	public function modify_user(){
 		$username = $this->ion_auth->user()->row()->username;
-		$data['avatar'] = "/assets/images/avatars/" . $_POST['avatar'] . ".png";
+		$data['avatar'] = "/assets/images/avatars/" . $_POST['avatar'];
 		$data['gender'] = $_POST['gender'];
 		$data['country'] = "/assets/images/flags/" . $_POST['country'] . ".png";
 		$data['quote'] = $_POST['quote'];

@@ -392,13 +392,12 @@ $maps2v2['CLSH'] = "Clash";
 
 GLOBAL $colorscheme;
 //unrated people are white
-$colorscheme['25'] = "#ff1300"; // > 25.00
-$colorscheme['20.833333'] = "#ff9a00";
-$colorscheme['16.666666'] = "#ffdf00";
-$colorscheme['12.5'] = "#c0f400";
-$colorscheme['8.333333'] = "#00c322";
-$colorscheme['4.166666'] = "#04819e";
-$colorscheme['0'] = "#133aac"; // > 0
-$colorscheme['-1000'] = "#4f10ad"; // everything else
-
-			
+$colorscheme['29.166666'] = "#ff1300"; 
+$colorscheme['25'] = "#ff9a00"; // > 25.00
+$colorscheme['20.833333'] = "#ffdf00";
+$colorscheme['16.666666'] = "#c0f400";
+$colorscheme['12.5'] = "#00c322";
+$colorscheme['8.333333'] = "#04819e";
+$colorscheme['4.166666'] = "#133aac";
+$colorscheme['0'] = "#4f10ad"; // > 0
+$colorscheme['-1000'] = "#cccccc"; // everything else
