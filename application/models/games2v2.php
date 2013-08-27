@@ -83,7 +83,10 @@ class Games2v2 extends CI_Model {
 		$this->leader_l1 = "TODO";
 		$this->leader_l2 = "TODO";
 		
-		$this->replay="TODO";
+		if($_POST['replay'] != "")
+			$this->replay=$_POST['replay'];
+		else
+			$this->replay="#";
 		$this->date = date('Y-m-d H:i:s');
 		$this->db->insert('games2v2', $this);
 	}

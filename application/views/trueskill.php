@@ -6,6 +6,6 @@ Welcome to Legends of Wesnoth! The ladder which rates your BfW games according t
 	<li>Dedicated page for every game.</li>
 	<li>Improved player profiles.</li>
 	<li>Career graph and faction stats.</li>
-	<li>Possibility to rate 2v2 games. (Upcoming)</li>
+	<li>Possibility to rate 2v2 games.</li>
 </ul>
 </div>

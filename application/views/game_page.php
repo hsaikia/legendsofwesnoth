@@ -9,10 +9,11 @@
 </div>
 
 <div class="content" style="font-size:16px;">
+<h2>Discuss Game</h2>	
 <table style="width:800px;">
 <?php 
 	global $faction, $maps;
-	echo "<tr><td class='timestamp'>[". $game->date ."]</td><td style='width:500'>" . getColoredHandle($game->handle_p1, $game->rating_p1) . " (" . $faction[$game->faction_p1] . ") ";
+	echo "<tr><td style='width:150px;' class='timestamp'>[". $game->date ."]</td><td style='width:600'>" . getColoredHandle($game->handle_p1, $game->rating_p1) . " (" . $faction[$game->faction_p1] . ") ";
 	if($game->winner == "P1")
 		echo " defeated ";
 	else
@@ -23,10 +24,10 @@
 </div>
 <br>
 <div class="content" style="font-size:12px;">
-<table style="width:800px;">
+<table style="width:900px;">
 <?php
 foreach ($comments as $comment) {
-	echo "<tr><td style='width:150px;' class='timestamp'>[". $comment->date ."]</td><td style='width:100px;'><b>". getColoredHandle($comment->handle, $comment->rating) . "</b> :</td><td><i>" . $comment->text ."</i></td></tr>";
+	echo "<tr><td style='width:150px;' class='timestamp'>[". $comment->date ."]</td><td style='width:100px;'><b>". getColoredHandle($comment->handle, $comment->rating) . "</b> :</td><td style='width:600px;'><i>" . $comment->text ."</i></td></tr>";
 } 
 echo form_open('comment_game/add_comment/' . $game->id); ?>
 <input type="hidden" name="my_handle" value='<?php echo $this->ion_auth->user()->row()->username; ?>' />

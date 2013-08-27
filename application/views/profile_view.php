@@ -98,7 +98,7 @@ $(function () {
 <table>
 <tr>
 <td class="pro_head" style="text-align:left;"><?php echo getColoredHandle($profile->handle, $profile->rating); ?>(<img src="<?php echo base_url() . $profile->country;?>" width="48"/>)</td>
-<td><a style="background:#770000" class="menulink" href="<?php echo site_url('user_session/view_profile_2v2/'. $profile->handle); ?>">2 v 2</a></td>
+<td><a class="menulink" href="<?php echo site_url('user_session/view_profile_2v2/'. $profile->handle); ?>">2 v 2</a></td>
 <td class="pro_head" style="text-align:right;">Rating <?php echo round(100*$profile->rating, 0); ?></td>
 </tr>
 </table>

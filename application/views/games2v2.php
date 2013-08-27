@@ -8,9 +8,9 @@
 </div>
 
 <div class="content" style="font-size:14px;">
-<h2>Recent 1 vs 1 Games</h2>
+<h2>Recent 2 vs 2 Games</h2>
 <table style="width:900px;">
-<?php include "game_list.php" ?>
+<?php include "game_list2v2.php" ?>
 </table>
 </div>
 

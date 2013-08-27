@@ -5,8 +5,10 @@ class Profile extends CI_Model {
 	var $email = "";
 	var $mean = 25;
 	var $volatility = 8.333333;
+	var $rating = 0;
 	var $mean2v2 = 25;
 	var $volatility2v2 = 8.333333;
+	var $rating2v2 = 0;
 	var $join_date = "";
 	var $avatar = "";
 	var $gender = "";
@@ -37,6 +39,12 @@ class Profile extends CI_Model {
 	
 	function get_profiles(){
 		$this->db->order_by("rating", "desc");
+		$query = $this->db->get('profiles');
+		return $query->result();
+	}
+	
+	function get_profiles_2v2(){
+		$this->db->order_by("rating2v2", "desc");
 		$query = $this->db->get('profiles');
 		return $query->result();
 	}

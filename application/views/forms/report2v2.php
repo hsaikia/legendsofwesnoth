@@ -7,19 +7,12 @@
 <?php $this->load->view('main_menu.php');?>
 </div> <!-- end header -->
 <?php echo validation_errors(); ?>
-<div class="content">
+<div id="report2v2" class="content">
 	<h2>Report 2 vs 2 win</h2>
 	<?php echo form_open('report_game/add_game_2v2'); ?>
-	
-	Map<select name="map">
-	<?php
-		global $maps2v2;
-		foreach($maps2v2 as $key => $value)
-		echo "<option value='". $key ."'>". $value ."</option>"
-	?>
-	</select>
-	<table>
-		
+	<hr><br>
+
+	<table>	
 	<tr><td></td><td>Handle</td><td>Faction</td><td>Position</td></tr>
 	<tr><td>Winner 1</td><td><input readonly name="winner_handle1" value="<?php echo $this->ion_auth->user()->row()->username; ?>"/></td><td><select name="winner_faction1">
 			<?php
@@ -74,12 +67,31 @@
 		</select></td>
 	</tr>
 	</table>
-
+	<br>
+	<table>
+	<tr>
+	<td class="label">Map</td><td>
+	<select name="map">	
+	<?php
+		global $maps2v2;
+		foreach($maps2v2 as $key => $value)
+		echo "<option value='". $key ."'>". $value ."</option>"
+	?>
+	</select>
+	</td>
+	</tr>	
+	<tr>
+	<td class="label">Replay (enter the full link address to the replay, optional)</td>
+	<td class="field"><input type="text" name="replay" size="50"/></td>
+	</tr>
+	</table>
+	<hr>
 	<table>
 	<tr><td class="label"><input id="gobutton" type="submit" value="Report Win" size="3" /></td>
 	<td class="field"><a href="<?php echo site_url('main') ?>"><input id="gobutton" value="Cancel" size="3" /></a></td>
 	</tr>
 	</table>
+
 	<?php echo form_close(); ?>
 </div>
 

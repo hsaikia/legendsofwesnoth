@@ -164,7 +164,7 @@ class Report_Game extends CI_Controller {
 			$this->load->view('forms/report2v2');
 			return;
 		}
-		$newRatings = $this->CalcTrueskillChanges2v2($w1->mean, $w1->volatility, $w2->mean, $w2->volatility, $l1->mean, $l1->volatility, $l2->mean, $l2->volatility);
+		$newRatings = $this->CalcTrueskillChanges2v2($w1->mean2v2, $w1->volatility2v2, $w2->mean2v2, $w2->volatility2v2, $l1->mean2v2, $l1->volatility2v2, $l2->mean2v2, $l2->volatility2v2);
 		$wdata1['mean2v2'] = $newRatings['winnerMean1'];
 		$wdata1['volatility2v2'] = $newRatings['winnerSigma1'];
 		$wdata1['rating2v2'] = $wdata1['mean2v2'] - 3*$wdata1['volatility2v2'];

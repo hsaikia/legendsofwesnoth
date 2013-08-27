@@ -9,6 +9,7 @@
 </div>
 
 <div class="content" style="font-size:16px;">
+<h2>Discuss Game</h2>
 <table style="width:800px;">
 <?php 
 	global $faction, $maps2v2;

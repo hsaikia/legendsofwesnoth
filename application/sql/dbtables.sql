@@ -45,7 +45,7 @@ CREATE TABLE `games` (
  `winner` varchar(2) NOT NULL,
  `sports_p1` int(11) NOT NULL,
  `sports_p2` int(11) NOT NULL,
- `replay` blob NOT NULL,
+ `replay` varchar(1024) DEFAULT NULL,
  `date` datetime NOT NULL,
  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -73,10 +73,10 @@ CREATE TABLE `games2v2` (
  `leader_l2` varchar(255) NOT NULL,
  `winner1` varchar(2) NOT NULL,
  `winner2` varchar(2) NOT NULL,
- `replay` blob NOT NULL,
+ `replay` varchar(1024) DEFAULT NULL,
  `date` datetime NOT NULL,
  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS `comments`;
 

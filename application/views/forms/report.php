@@ -7,7 +7,7 @@
 <?php $this->load->view('main_menu.php');?>
 </div> <!-- end header -->
 <?php echo validation_errors(); ?>
-<div class="content">
+<div id="report1v1" class="content">
 	<h2>Report win</h2>
 	<?php echo form_open('report_game/add_game'); ?>
 	<input type="hidden" name="winner_handle" value="<?php echo $this->ion_auth->user()->row()->username; ?>"/>
@@ -40,9 +40,9 @@
 		</tr>
 		
 		<tr>
-		<td class="label">P1 Faction</td>
+		<td class="label">Your Faction</td>
 		<td class="field">
-		<select name="p1_faction">
+		<select name="winner_faction">
 			<?php
 				global $faction;
 				foreach($faction as $key => $value)
@@ -52,9 +52,9 @@
 		</td>
 		</tr>
 		<tr>
-		<td class="label">P2 Faction</td>
+		<td class="label">Opponent's Faction</td>
 		<td class="field">
-		<select name="p2_faction">
+		<select name="loser_faction">
 			<?php
 				global $faction;
 				foreach($faction as $key => $value)
@@ -65,8 +65,8 @@
 		</tr>
 
 		<tr>
-		<td class="label">Replay</td>
-		<td class="field">TODO!</td>
+		<td class="label">Replay (enter the full link address to the replay, optional)</td>
+		<td class="field"><input type="text" name="replay"/></td>
 		</tr>
 		<tr>
 		<td class="label">Sportsmanship</td>

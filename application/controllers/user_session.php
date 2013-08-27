@@ -109,11 +109,25 @@ class User_session extends CI_Controller {
 		$this->load->view('players', $data);
 	}
 	
+	public function view_players2v2(){
+		$this->load->model('profile');
+		$profiles = $this->profile->get_profiles_2v2();
+		$data['profiles'] = $profiles;
+		$this->load->view('players2v2', $data);
+	}
+	
 	public function view_all_games(){
 		$this->load->model('games');
 		$games = $this->games->get_all_games();
 		$data['games'] = $games;
 		$this->load->view('games', $data);
+	}
+	
+	public function view_all_games_2v2(){
+		$this->load->model('games2v2');
+		$games = $this->games2v2->get_all_games();
+		$data['games'] = $games;
+		$this->load->view('games2v2', $data);
 	}
 	
 	public function get_handles(){

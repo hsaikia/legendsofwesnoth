@@ -52,7 +52,7 @@ a {
 	margin-left:10px;
 }
 
-#menu #userpanel {
+#menu #userpanel { /* used for login block*/
 	position:relative;
 	top:0;
 	left: 0;
@@ -64,38 +64,6 @@ a {
 	padding:10px;
 	display:block;
 	background:#0E0E0E;
-}
-
-#userpanel_active {
-	font-size:12px;
-	background:#000000;
-}
-
-#menu #panel ul {
-	list-style:none;
-	margin:0;
-	padding:0;	
-	
-}
-
-#menu #panel ul li a {
-	text-decoration:none;
-	float:left;
-	margin-right: 5px;
-	margin-bottom:5px;
-	font-family : Verdana;
-	color: #FFF;
-	/*border: 1px solid #FFF;*/
-	border-radius:7px;
-	padding:10px;
-	display:block;
-	background:#471100;
-}
-
-#menu #panel ul li a:hover {
-	background:#FF7F00;
-	color: #000;
-	text-shadow:1px 1px 1px #333;
 }
 
 #imageslider{
@@ -110,47 +78,15 @@ a {
 	margin: 10px;
 }
 
-#contents {
-	width: 680px;
-	height:310px;
-	text-align:left;
-	margin: 10px;
-}
-
-.content {
-	font-family:verdana;
+.content { /*used for content throughout the site*/
+	font-family:Tahoma;
 	color:#FFF;
 	margin: 10px;
 	padding:10px;
-	font-size : 12px;
+	font-size : 13px;
 	border: 1px solid #222;
 	background:#050505;
 	border-radius:10px;
-}
-
-#descnav {
-	height : 140px;
-	margin:10px;
-}
-
-#descnav ul {
-	list-style:none;
-	margin:0;
-	padding:0;
-}
-#descnav ul li a {
-	text-decoration:none;
-	float:left;
-	width:220px;
-	text-align:left;
-	margin-right: 5px;
-	margin-bottom:5px;
-	font-family : Verdana;
-	color: #FFF;
-	padding:4px;
-	display:block;
-	background:#471100;
-	border-radius:5px;
 }
 
 a.overall {
@@ -183,20 +119,6 @@ a.overall:hover {
 	text-align:center;
 }
 /*For menu items - color is assigned seperately*/
-.menulink {
-	text-decoration:none;
-	display: block;
-	padding:8px;
-	font-family:Verdana;
-    color:#FFF;
-    font-size:14px;
-    background:#333333;
-    width:100px;
-    margin: 2px;
-    text-align:center;
-    border-radius:5px;
-	text-shadow:1px 1px 1px #333;	
-}
 
 #cont {
 	width:900px;
@@ -205,7 +127,7 @@ a.overall:hover {
 .pro_head {
 	font-family:Impact;
 	font-size:32px;
-	width:450px;
+	width:300px;
 }
 
 .pro_quote {
@@ -230,11 +152,92 @@ a.overall:hover {
 }
 
 .timestamp {
-	font-size:0.8;
+	font-size:12px;
 	color:#63add0;
 	font-family:Tahoma;
 }
 
 #register_message{
 	width: 600px;
+}
+
+.top10 {
+	font-size:14px;
+	padding:10px;
+}
+
+#user_menu {
+	font-size:12px;
+}
+
+#user_menu ul {
+	list-style:none;
+	margin:10px 5px 20px 5px;
+	padding:0;
+}
+
+#user_menu ul li {
+	display : inline;
+}
+
+#user_menu ul li a {
+	text-decoration:none;
+	padding : 5px 15px 5px 15px;
+	background:#471100;
+	color: #eee;
+	border-radius:5px;
+}
+
+#user_menu ul li a:hover {
+	background:#FF7F00;
+	color: #000;
+	text-shadow:1px 1px 1px #333;
+
+}
+
+#main_contents {
+	width:950px;
+	overflow:auto;
+}
+
+#left_sidebar {
+	float:left;
+	margin: 10px;
+	border:1px solid #111;
+	border-radius:10px;
+}
+
+#main_text {
+	font-family:Tahoma;
+	color:#FFF;
+	font-size:12px;
+	width:650px;
+	float:left;
+	margin: 5px 0px 5px 10px;
+	border:1px solid #111;
+	padding: 10px;
+	text-align:left;
+	border-radius:10px;
+}
+
+.menulink {
+	width:200px;
+	text-decoration:none;
+	padding : 5px 15px 5px 15px;
+	background:#471100;
+	color: #eee;
+	border-radius:5px;
+}
+
+#report1v1 {
+	width:950px;
+}
+
+#report2v2 {
+	width:950px;
+}
+
+table tr td {
+	margin: 10px;
+	padding:0px 10px 0px 10px;
 }

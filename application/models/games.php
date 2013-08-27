@@ -56,6 +56,8 @@ class Games extends CI_Model {
 			$this->handle_p2 = $_POST['loser_handle'];
 			$this->sports_p1 = "-1";
 			$this->sports_p2 = $_POST['sports'];
+			$this->faction_p1 = $_POST['winner_faction'];
+			$this->faction_p2 = $_POST['loser_faction'];
 		} else {
 			$this->rating_p1 = $loser_rating;
 			$this->rating_p2 = $winner_rating;
@@ -63,12 +65,16 @@ class Games extends CI_Model {
 			$this->handle_p2 = $_POST['winner_handle'];
 			$this->sports_p1 = $_POST['sports'];
 			$this->sports_p2 = "-1";
+			$this->faction_p2 = $_POST['winner_faction'];
+			$this->faction_p1 = $_POST['loser_faction'];
 		}
-		$this->faction_p1 = $_POST['p1_faction'];
-		$this->faction_p2 = $_POST['p2_faction'];
 		$this->leader_p1 = "TODO";
 		$this->leader_p2 = "TODO";
-		$this->replay="TODO";
+		if($_POST['replay'] != "")
+			$this->replay=$_POST['replay'];
+		else
+			$this->replay="#";
+			
 		$this->date = date('Y-m-d H:i:s');
 		$this->db->insert('games', $this);
 	}
