@@ -9,7 +9,7 @@
 </div>
 
 <div class="content game_header">
-<h2>Discuss Game</h2>	
+<h2>Provide Feedback for this Game</h2>	
 <table style="width:900px;">
 <tr><td>Date</td><td>Game Details</td><td>Sportsmanship(P1/P2)</td></tr>
 <hr>	
@@ -21,7 +21,6 @@
 	else
 		echo " lost to ";
 	echo getColoredHandle($game->handle_p2, $game->rating_p2) . " (" . $faction[$game->faction_p2] . ") on ". $maps[$game->map] ."</td>";
-	
 	echo "<td>";
 	if($game->sports_p1 > 0) echo $game->sports_p1; else echo "-";  
 	echo "/"; 
@@ -30,20 +29,21 @@
 ?>
 </table>
 </div>
-<br>
-<div class="content game_discuss" >
-<table style="width:900px;">
-<?php
-foreach ($comments as $comment) {
-	echo "<tr><td style='width:150px;' class='timestamp'>[". $comment->date ."]</td><td style='width:100px;'><b>". getColoredHandle($comment->handle, $comment->rating) . "</b> :</td><td style='width:600px;'>" . $comment->text ."</td></tr>";
-} 
-echo form_open('comment_game/add_comment/' . $game->id); ?>
-<input type="hidden" name="my_handle" value='<?php echo $this->ion_auth->user()->row()->username; ?>' />
-</table>
-</div>
 <div>
-<textarea rows="3" cols="80" name="my_comment" style="font-family:Verdana"></textarea><br>
-<input id="gobutton" type="submit" value="Publish Comment" size="3" />
+	<?php echo form_open('report_game/feedback_receive/' . $game->id); ?>
+<table><tr>
+<td class="label">Sportsmanship</td>
+<td class="field"><select name="sports">
+<option selected value="0">-</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+</select></td>
+</tr></table>
+<input id="gobutton" type="submit" value="Send Feedback" size="3" />
+<?php echo form_close(); ?>
 <hr>
 </div>
 

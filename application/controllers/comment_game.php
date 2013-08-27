@@ -11,8 +11,7 @@ class Comment_game extends CI_Controller {
 	public function discuss($game_id){
 		$this->load->model('games');
 		$game = $this->games->get_game($game_id);
-		$data['game'] = reset($game);
-		
+		$data['game'] = reset($game);	
 		$this->load->model('comments');
 		$comments = $this->comments->get_comments($game_id);
 		$data['comments'] = $comments;

@@ -8,7 +8,7 @@
 <?php include "main_menu.php"; ?>
 </div>
 
-<div class="content" style="font-size:16px;">
+<div class="content game_header">
 <h2>Discuss Game</h2>
 <table style="width:800px;">
 <?php 
@@ -22,11 +22,11 @@
 </table>
 </div>
 <br>
-<div class="content" style="font-size:12px;">
+<div class="content game_discuss">
 <table style="width:800px;">
 <?php
 foreach ($comments as $comment) {
-	echo "<tr><td style='width:150px;' class='timestamp'>[". $comment->date ."]</td><td style='width:100px;'><b>". getColoredHandle($comment->handle, $comment->rating) . "</b> :</td><td><i>" . $comment->text ."</i></td></tr>";
+	echo "<tr><td style='width:150px;' class='timestamp'>[". $comment->date ."]</td><td style='width:100px;'><b>". getColoredHandle($comment->handle, $comment->rating) . "</b> :</td><td>" . $comment->text ."</td></tr>";
 } 
 echo form_open('comment_game/add_comment_2v2/' . $game->id); ?>
 <input type="hidden" name="my_handle" value='<?php echo $this->ion_auth->user()->row()->username; ?>' />

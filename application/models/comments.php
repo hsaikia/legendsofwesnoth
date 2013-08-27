@@ -26,6 +26,7 @@ class Comments extends CI_Model {
 	public function get_comments($game_id){
 		$this->db->select('*');
 		$this->db->where('game_id', $game_id);
+		$this->db->order_by('date');
 		$this->db->from('comments');
 		$this->db->join('profiles', 'comments.handle = profiles.handle');
 		$query = $this->db->get();
@@ -47,6 +48,7 @@ class Comments extends CI_Model {
 	public function get_comments_2v2($game_id){
 		$this->db->select('*');
 		$this->db->where('game_id', $game_id);
+		$this->db->order_by('date');
 		$this->db->from('comments2v2');
 		$this->db->join('profiles', 'comments2v2.handle = profiles.handle');
 		$query = $this->db->get();

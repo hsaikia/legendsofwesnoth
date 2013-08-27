@@ -79,6 +79,9 @@ class Games extends CI_Model {
 		$this->db->insert('games', $this);
 	}
     
+    public function modify_game($game_id, $data){
+		$this->db->update('games', $data, array('id' => $game_id));
+	}    
 }
 
 ?>

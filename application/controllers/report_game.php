@@ -9,6 +9,24 @@ class Report_Game extends CI_Controller {
 			$this->load->view('guest');
 	}
 	
+	public function feedback($game_id){
+		$this->load->model('games');
+		$game = $this->games->get_game($game_id);
+		$data['game'] = reset($game);
+		$this->load->view('game_feedback', $data);
+	}
+	
+	public function feedback_receive($game_id){
+		$this->load->model('games');
+		$game = reset($this->games->get_game($game_id));
+		if($game->sports_p1 == -1)
+			$data['sports_p1'] = $_POST['sports'];
+		else
+			$data['sports_p2'] = $_POST['sports'];
+		$this->games->modify_game($game_id, $data);	
+		$this->load->view('feedback_success');		
+	}
+	
 	public function request2v2(){
 		if($this->ion_auth->logged_in()){
 			$this->load->view('forms/report2v2');
@@ -188,8 +206,6 @@ class Report_Game extends CI_Controller {
 		$this->load->model('games2v2');
 		$this->games2v2->add_game($wdata1['rating2v2'], $wdata2['rating2v2'], $ldata1['rating2v2'], $ldata2['rating2v2']);
 		$this->load->view('reporting_success');
-		
-		
 	}
 	
 }
