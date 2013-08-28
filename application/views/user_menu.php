@@ -14,7 +14,7 @@
 <li><a href="<?php echo site_url('user_session/view_players') ; ?>">Ladder</a></li>
 <li><a href="<?php echo site_url('user_session/view_players2v2') ; ?>">Ladder 2 v 2</a></li>
 <li><a>Trueskill</a></li>
-<li><a>FAQ</a></li>
+<li><a href="<?php echo site_url('user_session/get_faq') ; ?>">FAQ</a></li>
 <li><a href="<?php echo site_url('user_session/modify');?>">Edit Profile</a></li>
 <li><a href="<?php echo site_url('user_session/logout'); ?>">Logout</a></li>
 </ul>

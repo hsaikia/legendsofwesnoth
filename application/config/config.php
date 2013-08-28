@@ -400,4 +400,4 @@ $colorscheme['12.5'] = "#00c322";
 $colorscheme['8.333333'] = "#04819e";
 $colorscheme['4.166666'] = "#133aac";
 $colorscheme['0'] = "#4f10ad"; // > 0
-$colorscheme['-1000'] = "#cccccc"; // everything else
+$colorscheme['-100000'] = "#cccccc"; // everything else

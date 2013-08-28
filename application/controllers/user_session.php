@@ -23,6 +23,9 @@ class User_session extends CI_Controller {
 	public function register(){
 		$this->load->view('forms/register_new');
 	}
+	public function get_faq(){
+		$this->load->view('faq.php');
+	}
 	public function register_user(){
 		$username = $_POST['handle'];
 		$password = $_POST['password'];
