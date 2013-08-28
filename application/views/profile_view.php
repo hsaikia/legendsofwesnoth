@@ -91,8 +91,8 @@ $(function () {
 <div id="main">
 <div id="header">
 <?php include "logo.php"; ?> 
-<?php include "main_menu.php"; ?>
 </div>
+<?php if ($this->ion_auth->logged_in()) include "user_menu.php"; ?>	
 <div id="cont" class="content">
 <div id="pro_top">
 <table>

@@ -4,9 +4,8 @@
 <div id="main">
 <div id="header">
 <?php include "logo.php"; ?> 
-<?php include "main_menu.php"; ?>
 </div>
-
+<?php if ($this->ion_auth->logged_in()) include "user_menu.php"; ?>	
 <div class="content" style="font-size:14px;">
 <h2>Recent 2 vs 2 Games</h2>
 <table style="width:900px;">

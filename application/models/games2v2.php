@@ -57,6 +57,13 @@ class Games2v2 extends CI_Model {
 		return $query->result();
 	}
     
+    public function get_games_in($map){
+		$this->db->where('map', $map);
+		$this->db->from('games2v2');
+		$query = $this->db->get();
+		return $query->result();
+	}
+    
     public function add_game($winner_rating1, $winner_rating2, $loser_rating1, $loser_rating2){
 		$this->map = $_POST['map'];
 		$this->winner1 = $_POST['winner1'];

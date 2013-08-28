@@ -4,6 +4,7 @@ body{
 	background-color:#000;
 	color:#FFF;
 	font-family : Verdana;
+	text-align:center;
 }
 
 a {
@@ -151,6 +152,16 @@ a.overall:hover {
 	text-decoration:none;
 }
 
+.map {
+	text-decoration:none;
+	color: #ccc;
+}
+
+.fac {
+	text-decoration:none;
+	color: #ccc;
+}
+
 .timestamp {
 	font-size:12px;
 	color:#63add0;
@@ -255,4 +266,7 @@ table tr td {
 .game_discuss {
 	font-size:12px;
 	width:870px;
+}
+#map_page_content {
+	width:950px;
 }

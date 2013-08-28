@@ -46,6 +46,21 @@ class Games extends CI_Model {
 		return $query->result();
 	}
     
+    public function get_games_in($map){
+		$this->db->where('map', $map);
+		$this->db->from('games');
+		$query = $this->db->get();
+		return $query->result();
+	}
+    
+    public function get_games_with($faction){
+		$this->db->where('faction_p1', $faction);
+		$this->db->or_where('faction_p2', $faction);
+		$this->db->from('games');
+		$query = $this->db->get();
+		return $query->result();
+	}
+    
     public function add_game($winner_rating, $loser_rating){
 		$this->map = $_POST['map'];
 		$this->winner = $_POST['winner'];

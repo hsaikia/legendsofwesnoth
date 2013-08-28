@@ -5,7 +5,7 @@
 <div id="main">
 <div id="header">
 <?php include "logo.php"; ?> 
-<?php include "main_menu.php"; ?>
+<?php if ($this->ion_auth->logged_in()) include "user_menu.php"; ?>	
 </div>
 
 <div class="content game_header">
@@ -20,7 +20,7 @@
 		echo " defeated ";
 	else
 		echo " lost to ";
-	echo getColoredHandle($game->handle_p2, $game->rating_p2) . " (" . $faction[$game->faction_p2] . ") on ". $maps[$game->map] ."</td>";
+	echo getColoredHandle($game->handle_p2, $game->rating_p2) . " (" . $faction[$game->faction_p2] . ") on <a class='map' href='". site_url('stats/get_map_stats/' . $game->map). "'>". $maps[$game->map] ."</a></td>";
 	
 	echo "<td>";
 	if($game->sports_p1 > 0) echo $game->sports_p1; else echo "-";  
