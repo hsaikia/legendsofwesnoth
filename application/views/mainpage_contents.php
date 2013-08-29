@@ -5,6 +5,6 @@
 	</div>
 
 	<div id="main_text">
-		<?php include('trueskill.php');?>
+		<?php include('mainpage_text.php');?>
 	</div>
 </div>

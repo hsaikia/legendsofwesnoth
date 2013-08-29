@@ -26,6 +26,9 @@ class User_session extends CI_Controller {
 	public function get_faq(){
 		$this->load->view('faq.php');
 	}
+	public function get_trueskill_info(){
+		$this->load->view('trueskill.php');
+	}
 	public function register_user(){
 		$username = $_POST['handle'];
 		$password = $_POST['password'];

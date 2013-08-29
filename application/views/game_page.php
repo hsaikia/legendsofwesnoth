@@ -5,9 +5,9 @@
 <div id="main">
 <div id="header">
 <?php include "logo.php"; ?> 
-<?php if ($this->ion_auth->logged_in()) include "user_menu.php"; ?>	
+	
 </div>
-
+<?php if ($this->ion_auth->logged_in()) include "user_menu.php"; ?>
 <div class="content game_header">
 <h2>Discuss Game</h2>	
 <table style="width:900px;">
