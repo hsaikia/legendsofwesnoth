@@ -12,7 +12,7 @@ $(function () {
                 x: -20
             },
             xAxis: {
-				
+				allowDecimals:false,
                 title:{
 					text: 'Timeline'
 				}
@@ -38,7 +38,7 @@ $(function () {
             },
             series: [{
                 name: '<?php echo $profile->handle;?>',
-                data: [
+                data: [[0], 
                 <?php
                 $i = 0;
                 $rgames = array_reverse($games);

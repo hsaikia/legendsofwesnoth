@@ -8,6 +8,8 @@
 		$loss[$key] = 0;
 	}
 	foreach($games as $game){
+		if($game->faction_p1 == $game->faction_p2)
+			continue;
 		if($game->winner == "P1"){
 			++$wins[$game->faction_p1];		
 			++$loss[$game->faction_p2];		
@@ -28,6 +30,7 @@
 <?php if ($this->ion_auth->logged_in()) include "user_menu.php"; ?>	
 <div id="map_page_content" class="content">
 <h2>How all factions fared on <?php echo $maps[$map]?></h2>
+<p>Note: Mirror games are not considered in these statistics.</p>
 <hr>
 
 <div id="faction_stats">

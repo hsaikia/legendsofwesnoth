@@ -40,6 +40,7 @@
 <?php if ($this->ion_auth->logged_in()) include "user_menu.php"; ?>	
 <div id="map_page_content" class="content">
 <h2><?php echo $faction[$race]?> against other factions </h2>
+<p>Note: Mirror games are not considered in these statistics.</p>
 <hr>
 
 <div id="faction_stats">

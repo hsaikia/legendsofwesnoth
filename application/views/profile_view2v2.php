@@ -12,7 +12,7 @@ $(function () {
                 x: -20
             },
             xAxis: {
-				
+				allowDecimals:false,
                 title:{
 					text: 'Timeline'
 				}
@@ -38,7 +38,7 @@ $(function () {
             },
             series: [{
                 name: '<?php echo $profile->handle;?>',
-                data: [
+                data: [[0],
                 <?php
                 $i = 0;
                 $rgames = array_reverse($games);
@@ -94,8 +94,8 @@ $(function () {
 <div id="main">
 <div id="header">
 <?php include "logo.php"; ?> 
-<?php include "main_menu.php"; ?>
 </div>
+<?php if ($this->ion_auth->logged_in()) include "user_menu.php"; ?>	
 <div id="cont" class="content">
 <div id="pro_top">
 <table>

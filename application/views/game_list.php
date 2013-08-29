@@ -3,7 +3,7 @@ include_once "globals.php";
 global $faction, $maps;
 global $feedback;
 foreach ($games as $game) {
-	echo "<tr><td style='width:150px;' class='timestamp'>[". $game->date . 
+	echo "<tr><td style='width:150px;' class='timestamp'>[". date('Y-m-d', strtotime($game->date)) . 
 		"]</td><td style='width:700'>" . getColoredHandle($game->handle_p1, $game->rating_p1) . 
 		" (<a class='fac' href='" . site_url('stats/get_faction_stats/' . $game->faction_p1) . "'>" . $faction[$game->faction_p1] . "</a>) ";
 	if($game->winner == "P1"){

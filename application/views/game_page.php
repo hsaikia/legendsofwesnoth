@@ -15,7 +15,7 @@
 <hr>	
 <?php 
 	global $faction, $maps;
-	echo "<tr><td class='timestamp'>[". $game->date ."]</td><td>" . getColoredHandle($game->handle_p1, $game->rating_p1) . " (" . $faction[$game->faction_p1] . ") ";
+	echo "<tr><td class='timestamp'>[". date('Y-m-d', strtotime($game->date)) ."]</td><td>" . getColoredHandle($game->handle_p1, $game->rating_p1) . " (" . $faction[$game->faction_p1] . ") ";
 	if($game->winner == "P1")
 		echo " defeated ";
 	else
@@ -35,7 +35,7 @@
 <table style="width:900px;">
 <?php
 foreach ($comments as $comment) {
-	echo "<tr><td style='width:150px;' class='timestamp'>[". $comment->date ."]</td><td style='width:100px;'><b>". getColoredHandle($comment->handle, $comment->rating) . "</b> :</td><td style='width:600px;'>" . $comment->text ."</td></tr>";
+	echo "<tr><td style='width:150px;' class='timestamp'>[". date('Y-m-d', strtotime($comment->date)) ."]</td><td style='width:100px;'><b>". getColoredHandle($comment->handle, $comment->rating) . "</b> :</td><td style='width:600px;'>" . $comment->text ."</td></tr>";
 } 
 echo form_open('comment_game/add_comment/' . $game->id); ?>
 <input type="hidden" name="my_handle" value='<?php echo $this->ion_auth->user()->row()->username; ?>' />
