@@ -32,21 +32,21 @@
 </div>
 <br>
 <div class="content game_discuss" >
-<table style="width:900px;">
+<table>
 <?php
 foreach ($comments as $comment) {
-	echo "<tr><td style='width:150px;' class='timestamp'>[". date('Y-m-d', strtotime($comment->date)) ."]</td><td style='width:100px;'><b>". getColoredHandle($comment->handle, $comment->rating) . "</b> :</td><td style='width:600px;'>" . $comment->text ."</td></tr>";
-} 
-echo form_open('comment_game/add_comment/' . $game->id); ?>
-<input type="hidden" name="my_handle" value='<?php echo $this->ion_auth->user()->row()->username; ?>' />
+	echo "<tr><td class='timestamp'>[". date('Y-m-d', strtotime($comment->date)) ."]</td><td><b>". getColoredHandle($comment->handle, $comment->rating) . "</b> :</td><td>" . $comment->text ."</td></tr>";
+}
+?> 
 </table>
+<br>
 </div>
-<div>
+<div><?php echo form_open('comment_game/add_comment/' . $game->id); ?>
+<input type="hidden" name="my_handle" value='<?php echo $this->ion_auth->user()->row()->username; ?>' />
+
 <textarea rows="3" cols="80" name="my_comment" style="font-family:Verdana"></textarea><br>
 <input id="gobutton" type="submit" value="Publish Comment" size="3" />
-<hr>
-</div>
-
+<?php echo form_close(); ?></div>
 </div>
 </center>
 </body>

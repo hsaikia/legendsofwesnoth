@@ -36,7 +36,7 @@ TrueSkill maintains a belief on the skill of each player; every time a player pl
 <h3 class="static_header">Ok, but what if people still find ways to "beat" the system?</h3>
 <p>Sure, and we'll try to correct it! Again keeping up with the LoW philosophy of improving the system and not put restrictions on players, or ban defaulters. It is always observed that most people don't need rules, and those who break them, break them anyway! We will consistently strive to achieve what is best for the community in general and keep changing for the better as and when the need arises.</p>
 	
-<h3 class="static_header">References to this article</h3>	
+<h3 class="static_header">References</h3>	
 <ul>
 <li>Jeff Moser's article <a href="http://www.moserware.com/2010/03/computing-your-skill.html">[http://www.moserware.com/2010/03/computing-your-skill.html]</a></li>
 <li>Microsoft's official Trueskill page <a href="http://research.microsoft.com/en-us/projects/trueskill/">[http://research.microsoft.com/en-us/projects/trueskill/]</a></li>

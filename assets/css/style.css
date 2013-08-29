@@ -267,6 +267,7 @@ table tr td {
 .game_discuss {
 	font-size:12px;
 	width:870px;
+	text-align:left;
 }
 #map_page_content {
 	width:950px;
