@@ -165,6 +165,7 @@ a.overall:hover {
 
 .timestamp {
 	font-size:12px;
+	width:100px;
 	color:#63add0;
 	font-family:Tahoma;
 }

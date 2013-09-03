@@ -35,7 +35,7 @@
 <table>
 <?php
 foreach ($comments as $comment) {
-	echo "<tr><td class='timestamp'>[". date('Y-m-d', strtotime($comment->date)) ."]</td><td><b>". getColoredHandle($comment->handle, $comment->rating) . "</b> :</td><td>" . $comment->text ."</td></tr>";
+	echo "<tr><td class='timestamp'>[". date('Y-m-d', strtotime($comment->date)) ."]</td><td><b>". getColoredHandle($comment->handle, $comment->rating) . "</b>:</td><td>" . $comment->text ."</td></tr>";
 }
 ?> 
 </table>
