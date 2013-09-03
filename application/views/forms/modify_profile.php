@@ -278,8 +278,10 @@
 		<?php
 			$this->load->helper('directory');
 			$map = directory_map('./assets/images/avatars/');
+			ksort($map);
 			foreach ($map as $keyd => $valued){
 				if(is_array($valued)){
+					asort($valued);
 					foreach($valued as $key => $value){
 						$avatars[$keyd. '/' . $value] = ucfirst($keyd) . ' - ' . ucfirst($value);
 						echo "<option value='". $keyd . '/' . $value . "'>". substr($avatars[$keyd. '/' . $value], 0, -4) . "</option>";
