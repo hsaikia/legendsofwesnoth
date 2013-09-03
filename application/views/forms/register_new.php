@@ -281,9 +281,13 @@
 		<?php
 			$this->load->helper('directory');
 			$map = directory_map('./assets/images/avatars/');
-			foreach ($map as $key => $value){
-				$avatars[$value] = ucfirst($value);
-				echo "<option value='". $value . "'>". substr(ucfirst($value), 0, -4) . "</option>";
+			foreach ($map as $keyd => $valued){
+				if(is_array($valued)){
+					foreach($valued as $key => $value){
+						$avatars[$keyd. '/' . $value] = ucfirst($keyd) . ' - ' . ucfirst($value);
+						echo "<option value='". $keyd . '/' . $value . "'>". substr($avatars[$keyd. '/' . $value], 0, -4) . "</option>";
+					}
+				}
 			}
 		?>
 	</select></td></tr>
